@@ -1,0 +1,109 @@
+<% layout("/layouts/boilerplate") %>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 col-md-8 offset-md-2">
+            <h1 class="text-center mb-4">My Orders</h1>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Title</th>
+                            <th>Check-in Date</th>
+                            <th>Check-out Date</th>
+                            <th>Total Cost</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (orders.length > 0) { %>
+                            <% orders.forEach((order, index) => { %>
+                                <tr>
+                                    <td><%= index + 1 %></td>
+                                    <td><%= order.listing.title %> <div><a href="/listings/<%= order.listing.id %>">View Details</a></div></td>
+                                    <td><%= new Date(order.from_date).toLocaleDateString("en-GB") %></td>
+                                    <td><%= new Date(order.to_date).toLocaleDateString("en-GB") %></td>
+                                    <td>₹<%= order.totalCost %></td>
+                                    <% if(order.payment_status === "paid"){ %>
+                                    <td id="payment-success"><div class="success"><%= order.payment_status %></div></td>
+                                    <%} else {%>
+                                    <td id="payment-failed"><div class="failed">Failed</div></td>
+                                    <%}%>  
+                                </tr>
+                            <% }); %>
+                        <% } else { %>
+                            <tr>
+                                <td colspan="6" class="text-center">No orders found.</td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="text-center mt-4">
+                <a href="/listings" class="btn btn-primary">Browse Homes</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .table {
+        margin-top: 20px;
+        background-color: #f8f9fa;
+        border-radius: 0.5rem;
+        overflow: hidden;
+    }
+    
+    th {
+        background-color: #fe424d !important;
+        color: white !important;
+    }
+    
+    th, td  {
+        text-align: center;
+    }
+    th, td  a{
+        text-decoration: none;
+    }
+
+    h1 {
+        color: #ff7220 !important;
+    }
+    .failed{
+        justify-content: center;
+        border-radius: 0.3rem;
+        background-color: rgba(249, 72, 72, 0.488);
+        height: 1.6rem;
+        width: 4rem;
+    }
+    .success{
+        justify-content: center;
+        border-radius: 0.3rem;
+        background-color: rgba(107, 249, 79, 0.488);
+        height: 1.6rem;
+        width: 4rem;
+    }
+    #payment-success{
+        color: green;
+    }
+    #payment-failed{
+        color: rgb(248, 0, 0);
+    }
+    @media (max-width: 576px) {
+        h1 {
+            font-size: 1.5rem; /* Smaller font size for mobile */
+        }
+
+        .table {
+            font-size: 0.6rem; /* Adjust table font size for mobile */
+        }
+        .failed{
+            height: 1rem;
+            width: 3rem;
+        }
+        .success{
+            height: 1rem;
+            width: 3rem;
+        }
+    }
+</style>

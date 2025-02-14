@@ -1,0 +1,110 @@
+<% layout("/layouts/boilerplate") %>
+<div class="container">
+    <!-- Loader Overlay -->
+    <div id="loader" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.8); z-index: 1000; justify-content: center; align-items: center;">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <div class="row mt-5 justify-content-center">
+        <div class="col-lg-8">
+            <h3 class="text-center mb-4">Reserve Your Dream Place</h3>
+
+            <!-- Listing Details Card -->
+            <div class="card mb-4 shadow-sm reserve-card">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="<%= listing.image.url %>" class="img-fluid rounded-start" alt="listing_img" style="object-fit: cover;">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body ps-3">
+                            <h5 class="card-title mb-2 mt-3"><b><%= listing.title %></b></h5>
+                            <p class="card-text mb-1 text-muted"><%= listing.country %></p>
+                            <p class="card-text mb-1"><%= listing.description %></p>
+                            <h5 class="card-text text-primary mt-3"><strong> &#8377; <%= listing.price %> </strong> / night + 18% GST</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reservation Form -->
+            <form id="reservation-form" method="POST" action="/listings/<%= listing._id %>/orders/checkout" novalidate class="needs-validation border rounded p-4 shadow-sm">
+                <h4 class="mb-3">Fill Your Details</h4>
+
+                <div class="mb-3">
+                    <label for="name" class="form-label">Full Name :</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email :</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Phone Number :</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="from-date" class="form-label">CHECK-IN :</label>
+                    <input type="date" class="form-control" id="from-date" name="from_date" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="to-date" class="form-label">CHECKOUT :</label>
+                    <input type="date" class="form-control" id="to-date" name="to_date" required>
+                </div>
+
+                <div class="mb-3">
+                    <h5>Total:- &#8377; <span id="total-amount">0</span></h5>
+                </div>
+
+                <div class="mb-3">
+                    <label for="payment-method" class="form-label">Payment Method :</label>
+                    <select class="form-select" id="payment-method" name="payment_method" required>
+                        <option selected disabled value="">Choose...</option>
+                        <option value="stripe">Stripe</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg w-100 mt-3">Buy Now</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    const fromDateInput = document.getElementById("from-date");
+    const toDateInput = document.getElementById("to-date");
+    const totalAmountElement = document.getElementById("total-amount");
+    const pricePerNight = <%= listing.price %>;
+
+    // Set today's date as the minimum for both date inputs
+    const today = new Date().toISOString().split("T")[0];
+    fromDateInput.setAttribute("min", today);
+    toDateInput.setAttribute("min", today);
+
+    fromDateInput.addEventListener("change", () => {
+        toDateInput.setAttribute("min", fromDateInput.value);
+        calculateTotal();
+    });
+
+    function calculateTotal() {
+        const fromDate = new Date(fromDateInput.value);
+        const toDate = new Date(toDateInput.value);
+
+        if (fromDate && toDate && toDate > fromDate) {
+            const diffTime = Math.abs(toDate - fromDate);
+            const nights = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            const Cost = nights * pricePerNight;
+            const totalCost = Cost + Cost * 0.18;
+            totalAmountElement.innerText = totalCost;
+        } else {
+            totalAmountElement.innerText = "0";
+        }
+    }
+
+    toDateInput.addEventListener("change", calculateTotal);
+</script>

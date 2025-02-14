@@ -1,0 +1,536 @@
+body {
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    flex: 2;
+}
+
+.navbar {
+    height: 5rem;
+    background-color: white;
+}
+
+.brand-icon {
+    height: 3.5rem;
+    width: 3.5rem;
+}
+
+.nav-link {
+    color: #fff !important;
+}
+
+footer {
+    background-color: #ebebeb; 
+    color: #0e0f0f; 
+    padding: 2rem 1rem; 
+    text-align: center;
+}
+
+.footer-container {
+    display: flex; 
+    justify-content: space-around; 
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1; 
+    min-width: 200px; 
+    margin: 1rem; 
+}
+
+.footer-section h3 {
+    margin-bottom: 1rem; 
+}
+
+.footer-socials {
+    display: flex; 
+    justify-content: center; 
+    margin: 1rem 0; 
+}
+
+.footer-socials a {
+    color: #000000; 
+    margin: 0 10px; 
+    font-size: 2.2rem; 
+    transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+    color: #3498db;
+}
+
+.footer-links a {
+    display: block; 
+    color: #000000; 
+    text-decoration: none;
+    margin: 0.5rem 0; 
+}
+
+.footer-links a:hover {
+    color: #3498db;
+    text-decoration: underline;
+}
+
+.newsletter-form {
+    display: flex; 
+    justify-content: center; 
+    margin-top: 1rem; 
+}
+
+.newsletter-form input {
+    padding: 0.5rem; 
+    border: none; 
+    border-radius: 4px; 
+    margin-right: 0.5rem; 
+}
+
+.newsletter-form button {
+    padding: 0.5rem 1rem; 
+    background-color: #3498db; 
+    color: #ffffff; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+}
+
+.newsletter-form button:hover {
+    background-color: #2980b9; 
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; 
+        align-items: center;
+    }
+    footer{
+        margin-top: 3rem;
+    }
+}
+
+
+.listing-card {
+    border: none !important;
+    margin-bottom: 2rem;
+}
+
+.card-img-top {
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.card-text p {
+    font-weight: 400;
+}
+
+.listing-link {
+    text-decoration: none;
+}
+
+.listing-link:hover {
+    text-decoration: underline;
+}
+
+.card-img-overlay {
+    opacity: 0;
+}
+
+.card-img-overlay:hover {
+    opacity: 0.2;
+    background-color: white;
+}
+
+.add-btn {
+    background-color: #fe424d !important;
+    color: white !important;
+}
+
+/* Edit Page */
+.edit-btn {
+    color: white !important;
+    border: none !important;
+    font-size: 1.2rem !important;
+
+}
+
+/* Show Page */
+.show-img {
+    height: 30vh;
+}
+
+.btns {
+    display: flex;
+}
+
+/* Map */
+#map {
+    height: 400px;
+    width: 80vh;
+    border-radius: 1rem;
+}
+
+/* Index page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+#filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    position: sticky;
+    top: 68px;
+    z-index: 2;
+}
+
+.filter {
+    opacity: 0.7;
+    text-align: center;
+    margin: 0.5rem;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.filter:hover {
+    opacity: 1;
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.filter p {
+    font-size: 0.8rem;
+    margin: 0.2rem 0 0 0;
+    color: black;
+}
+
+.filter img {
+    height: 2rem;
+    width: 2rem;
+}
+
+.btn-link {
+    text-decoration: none !important;
+}
+
+.tax-toggle {
+    border: 1px solid black;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    background-color: #e9ecef;
+    cursor: pointer;
+}
+.tax-toggle input{
+    cursor: pointer;
+}
+.form-check-label{
+    cursor: pointer;
+}
+
+.listing-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px !important;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.listing-card:hover {
+    transform: scale(1.02);
+}
+
+.listing-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card-body {
+    padding: 0rem !important;
+}
+
+.original-price {
+    color: #334252;
+}
+
+.price-with-tax {
+    color: #28a745;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    #filters {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.reviews {
+    padding-bottom: 1rem;
+}
+
+
+/* Explore */
+.explore {
+    cursor: pointer;
+    background: linear-gradient(to right, #EB3349, #F45C43);
+    border-radius: 2rem;
+    color: #fff;
+}
+
+.explore:hover {
+    box-shadow: 
+        rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, 
+        rgba(6, 24, 44, 0.65) 0px 4px 6px -10px, 
+        rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+.explore:focus {
+    box-shadow: inset -12px -8px 40px rgba(70, 70, 70, 0.125);
+}
+
+
+/* Login */
+
+.login {
+    font-size: 16px;
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    will-change: box-shadow, transform;
+    background: radial-gradient(100% 100% at 100% 0%, #89E5FF 0%, #5468FF 100%);
+    box-shadow: 0px 0.01em 0.01em rgb(45 35 66 / 40%), 0px 0.3em 0.7em -0.01em rgb(45 35 66 / 30%), inset 0px -0.01em 0px rgb(58 65 111 / 50%);
+    padding: 0 1.2em;
+    border-radius: 20px;
+    color: #fff;
+    height: 2.7rem;
+    text-shadow: 0 1px 0 rgb(0 0 0 / 40%);
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.login:hover {
+    box-shadow: 0px 0.1em 0.2em rgb(45 35 66 / 40%), 0px 0.4em 0.7em -0.1em rgb(45 35 66 / 30%), inset 0px -0.1em 0px #3c4fe0;
+    transform: translateY(-0.1em);
+}
+
+.login:active {
+    box-shadow: inset 0px 0.1em 0.6em #3c4fe0;
+    transform: translateY(0em);
+}
+
+
+/* Signup */
+button.signup {
+    --primary-color: #645bff;
+    --secondary-color: #fff;
+    --hover-color: #3c4fe0;
+    --arrow-width: 10px;
+    --arrow-stroke: 2px;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 20px;
+    color: var(--secondary-color);
+    background: var(--primary-color);
+    display: flex;
+    transition: 0.2s;
+    align-items: center;
+    gap: 0.6em;
+    font-weight: bold;
+}
+
+button.signup .arrow-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button.signup .arrow {
+    margin-top: 1px;
+    width: var(--arrow-width);
+    background: var(--primary-color);
+    height: var(--arrow-stroke);
+    position: relative;
+    transition: 0.2s;
+}
+
+button.signup .arrow::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    border: solid var(--secondary-color);
+    border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+    display: inline-block;
+    top: -3px;
+    right: 3px;
+    transition: 0.2s;
+    padding: 3px;
+    transform: rotate(-45deg);
+}
+
+button.signup:hover {
+    background-color: var(--hover-color);
+}
+
+button.signup:hover .arrow {
+    background: var(--secondary-color);
+}
+
+button.signup:hover .arrow:before {
+    right: 0;
+}
+
+/* Logout */
+
+.logout {
+    font-size: 16px;
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    will-change: box-shadow, transform;
+    background: radial-gradient(100% 100% at 100% 0%, #FF8C8C 0%, #FF5A5F 100%);
+    /* Coral red gradient */
+    box-shadow: 0px 0.01em 0.01em rgb(45 35 66 / 40%),
+        0px 0.3em 0.7em -0.01em rgb(45 35 66 / 30%),
+        inset 0px -0.01em 0px rgb(58 65 111 / 50%);
+    padding: 0 1.2em;
+    border-radius: 10rem;
+    height: 2.9rem;
+    text-shadow: 0 1px 0 rgb(0 0 0 / 40%);
+    color: #fff;
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.logout:hover {
+    transform: translateY(-0.1rem);
+    box-shadow: 0px 0.03em 0.1em rgb(45 35 66 / 50%),
+        0px 0.5em 0.9em -0.1em rgb(45 35 66 / 40%),
+        inset 0px -0.01em 0px rgb(58 65 111 / 60%);
+}
+
+.logout:active {
+    box-shadow: inset 0px 0.1em 0.6em #d94e4e;
+    transform: translateY(0em);
+}
+
+/* List Button */
+
+.list {
+    border: none;
+    border-radius: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    background: #5769ef;
+    cursor: pointer;
+    transition: all 450ms ease-in-out;
+}
+
+.sparkle {
+    fill: #AAAAAA;
+    transition: all 800ms ease;
+}
+
+.text {
+    font-weight: 600;
+    color: #AAAAAA;
+    font-size: medium;
+}
+
+.list:hover {
+    background: linear-gradient(0deg, #A47CF3, #683FEA);
+    box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
+        inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
+        0px 0px 0px 4px rgba(255, 255, 255, 0.2),
+        0px 0px 180px 0px #9917FF;
+    transform: translateY(-2px);
+}
+
+.list:hover .text {
+    color: white;
+}
+
+.list:hover .sparkle {
+    fill: white;
+    transform: scale(1.2);
+}
+
+/* buy-now button */
+.buy-now {
+    width: 8rem !important;
+    height: 3rem;
+    padding-top: 0.6rem !important;
+    margin-left: 25.5%;
+}
+
+/* Orders Button */
+.button {
+    line-height: 1;
+    text-decoration: none;
+    display: inline-flex;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: rgb(255, 115, 1);
+    color: #fff;
+    border-radius: 10rem;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    padding-left: 0.8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: background-color 0.3s;
+    margin-right: 0.20rem;
+}
+
+.button__icon-wrapper {
+    flex-shrink: 0;
+    width: 25px;
+    height: 25px;
+    position: relative;
+    color: var(--clr);
+    background-color: #fff;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.button:hover {
+    background-color: #ff4b10;
+}
+
+.button:hover .button__icon-wrapper {
+    color: #fb641b;
+}
+
+.button__icon-svg--copy {
+    position: absolute;
+    transform: translate(-150%, 150%);
+}
+
+.button:hover .button__icon-svg:first-child {
+    transition: transform 0.3s ease-in-out;
+    transform: translate(150%, -150%);
+}
+
+.button:hover .button__icon-svg--copy {
+    transition: transform 0.3s ease-in-out 0.1s;
+    transform: translate(0);
+}

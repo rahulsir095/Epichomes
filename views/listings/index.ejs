@@ -1,0 +1,67 @@
+<% layout('/layouts/boilerplate') %>
+<style>
+  @media (max-width: 768px){
+    #filters{
+      display: flex;
+      flex-wrap: wrap;
+      height: 12vh;
+      overflow-x: auto;
+      z-index: 3;
+    }
+    .tax-toggle{
+      margin-top: 1.2rem;
+    }
+  }
+</style>
+
+<!-- Filters Section -->
+<div id="filters">
+  <% let categories = ["Amazing pools", "Farms", "OMG!", "Earth homes", "Golfing", "Amazing views", "Beachfront", "Cabins", "Rooms", "Castle"]; %>
+  <% categories.forEach((category) => { %>
+    <form class="filter" method="GET" action="/listings">
+      <input type="hidden" name="category" value="<%= category %>">
+      <button type="submit" class="btn btn-link">
+        <img src="<%= getCategoryImageUrl(category) %>" alt="<%= category %>">
+        <p><%= category %></p>
+      </button>
+    </form>
+  <% }) %>
+  
+  <div class="tax-toggle">
+    <div class="form-check-reverse form-switch">
+      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+      <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
+    </div>
+  </div>
+</div>
+
+<!-- Search Results Heading -->
+<% if (search) { %>
+  <h4>Search results for "<%= search %>"</h4>
+<% } else if (category) { %>
+  <h4>Results for "<%= category %>"</h4>
+<% } %>
+
+<!-- Listings Section -->
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+  <% for (let Listings of allListings) { 
+       let priceWithTax = Listings.price * 1.18; %>
+    <a href="/listings/<%= Listings._id %>" class="listing-link">
+      <div class="card col listing-card">
+        <img src="<%= Listings.image.url %>" class="card-img-top" alt="listing_image"
+          style="height: 17.5rem; object-fit: cover; width: 15rem;" />
+        <div class="card-body">
+          <p class="card-text">
+            <b><%= Listings.title %></b><br />
+            <span class="original-price">
+              &#8377; <%= Listings.price.toLocaleString("en-IN") %>/night
+            </span>
+            <span class="price-with-tax" style="display: none;">
+              &#8377; <%= priceWithTax.toLocaleString("en-IN") %>/night (Incl. 18% GST)
+            </span>
+          </p>
+        </div>
+      </div>
+    </a>
+  <% } %>
+</div>

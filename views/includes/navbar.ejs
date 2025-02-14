@@ -1,0 +1,231 @@
+<style>
+  .search-btn {
+    background-color: #fe424d;
+    color: #fff;
+    padding: 0 1rem;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-radius 0.3s ease;
+  }
+
+  .search-btn:hover {
+    background-color: #fe424d;
+    color: #fff;
+    border-radius: 5px;
+  }
+
+  .search-btn i {
+    display: inline;
+    margin-right: 0.5rem;
+  }
+
+  .search-inp {
+    border-radius: 25px;
+    padding: 0.5rem 3rem;
+  }
+
+  .navbar {
+    background-color: #f8f9fa;
+  }
+
+  .navbar-toggler {
+    border: none;
+  }
+
+  .navbar-brand i {
+    font-size: 1.5rem;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .navbar {
+      width: 100%;
+    }
+
+    .navbar-nav {
+      text-align: center;
+      display: block;
+    }
+
+    .navbar-nav .nav-link {
+      padding: 0.5rem;
+    }
+
+    .navbar-collapse {
+      background-color: rgb(255, 255, 255);
+      border-radius: 1rem;
+    }
+
+    .explore,
+    .list,
+    .signup,
+    .login,
+    .logout 
+    #order-btn
+    {
+      width: 100%;
+      margin-bottom: 0.1rem;
+      display: block;
+      text-align: center;
+    }
+
+    .search-inp {
+      width: 100%;
+    }
+
+    .search-btn {
+      width: 45%;
+    }
+
+    .navbar-nav.ms-auto {
+      margin-top: 1rem;
+      display: block;
+    }
+
+    /* Keep search bar in one row */
+    .search-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .explore {
+      width: 30%;
+      margin-left: 70%;
+      margin-top: 10px;
+      padding: 0 !important;
+    }
+
+    .signup {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 25%;
+      margin-left: 75%;
+      font-size: 0.7rem;
+    }
+    .signup a{
+      font-size: 1rem !important;
+    }
+
+    .login {
+      height: auto;
+      width: 25%;
+      margin-left: 74%;
+      margin-bottom: 1rem;
+      padding: 0px !important;
+      font-size: 0.7rem !important;
+    }
+    .login a{
+      font-size: 1rem !important;
+    }
+    .list {
+      width: 30%;
+      margin-left: 71%;
+      font-size: 0.8rem;
+      margin-bottom: 0 !important;
+    }
+
+    .list svg {
+      display: none;
+    }
+
+    .logout {
+      width: 25%;
+      margin-left: 72%;
+      margin-bottom: 0.5rem;
+      font-size: 0.7rem;
+      height: 2rem !important;
+    }
+    #order-btn{
+      width: 25%;
+      margin-left: 72%;
+      margin-bottom: 0.5rem;
+      margin-top: 0.5rem;
+      font-size: 0.7rem;
+      gap: 0.1rem;
+    }
+    .button__icon-wrapper {
+      height: 1rem;
+      width: 1rem;
+    }
+
+    .nav-link {
+      color: #fff !important;
+      font-weight: 600;
+    }
+
+  }
+</style>
+
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/listings"><img class="brand-icon" src="/images/home-icon.png" alt="home-icon"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <button class="explore"><a class="nav-link" href="/listings">Home</a></button>
+      </div>
+      <div class="navbar-nav ms-auto search-wrapper">
+        <form action="/listings/search" class="d-flex" role="search" method="get">
+          <input class="form-control me-2 search-inp" type="search" placeholder="Search destinations" name="search">
+          <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+        </form>
+      </div>
+      <div class="navbar-nav ms-auto">
+        <button class="list">
+          <svg height="24" width="24" fill="#FFFFFF" viewBox="0 0 24 24" data-name="Layer 1" id="Layer_1"
+            class="sparkle">
+            <path
+              d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z">
+            </path>
+          </svg>
+          <a class="nav-link text" href="/listings/new" style="color: #fff !important;">List your home</a>
+        </button>&nbsp;
+        <% if(!currUser) {%>
+          <button class="signup">
+            <div class="arrow-wrapper">
+              <a class="nav-link" href="/signup" style="text-decoration: none; color: #fff !important;">Sign up</a>
+              <div class="arrow"></div>
+            </div>
+          </button>&nbsp;
+          <button class="login"><a class="nav-link" href="/login" style="color: #fff !important;"><b>Log
+                in</b></a></button>
+          <%} else{ %>
+            <button class="button" id="order-btn" style="--clr: #7808d0"> 
+              <span class="button__icon-wrapper">
+                <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="button__icon-svg"
+                  width="10">
+                  <path
+                    d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
+                    fill="currentColor"></path>
+                </svg>
+
+                <svg viewBox="0 0 14 15" fill="none" width="10" xmlns="http://www.w3.org/2000/svg"
+                  class="button__icon-svg button__icon-svg--copy">
+                  <path
+                    d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
+                    fill="currentColor"></path>
+                </svg>
+              </span>
+              MyOrders
+            </button>
+
+            <%}%>
+              <% if(currUser) {%>
+                <button class="logout">
+                  <a class="nav-link" href="/logout" style="color: #fff !important;">Log out</a>
+                </button>
+                <%}%>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  document.getElementById('order-btn').addEventListener('click', function() {
+      window.location.href = '/myorder';
+  });
+</script>

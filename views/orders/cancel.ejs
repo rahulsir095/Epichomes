@@ -1,0 +1,31 @@
+<% layout("/layouts/boilerplate") %>
+    <div class="container text-center">
+        <h1 class="mt-5">Paymeynt Unsuccessful</h1>
+        <p class="lead">We're sorry to see you go. Your booking was Unsuccessful</p>
+
+        <!-- Sad Face Animation -->
+        <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg" class="my-4">
+            <!-- Face Circle -->
+            <circle cx="50" cy="50" r="45" fill="#FFF22E" stroke="#B8860B" stroke-width="2" />
+
+            <!-- Sad Mouth -->
+            <path d="M30,60 Q50,80 70,60" fill="none" stroke="#555" stroke-width="2">
+                <animate attributeName="d" values="M30,60 Q50,80 70,60; M30,65 Q50,85 70,65; M30,60 Q50,80 70,60"
+                    dur="2s" repeatCount="indefinite" />
+            </path>
+
+            <!-- Eyes -->
+            <circle cx="35" cy="40" r="4" fill="#555" />
+            <circle cx="65" cy="40" r="4" fill="#555" />
+
+            <!-- Tear Drop -->
+            <circle cx="35" cy="50" r="3" fill="#5DADE2">
+                <animate attributeName="cy" values="50; 60; 50" dur="1.5s" repeatCount="indefinite" />
+                <animate attributeName="opacity" values="1; 0; 1" dur="1.5s" repeatCount="indefinite" />
+            </circle>
+        </svg>
+
+        <p>If you have any questions, feel free to contact our support team.</p>
+
+        <a href="/listings" class="btn btn-outline-success mt-4">Return to Home</a>
+    </div>
